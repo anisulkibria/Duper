@@ -1,0 +1,26 @@
+<button id="mode-switcher" class="switcher-btn" rel="noopener">{{> "icons/mode"}}</button>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var html_element = document.querySelector("html");
+    var mode_switcher = document.getElementById("mode-switcher");
+    var isDarkMode = localStorage.getItem('dark-mode');
+
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+        isDarkMode = !isDarkMode; // Toggle dark mode
+        html_element.classList.toggle('dark-mode', isDarkMode);
+        localStorage.setItem('dark-mode', isDarkMode);
+    }
+
+    // Event listener for mode switcher button
+    mode_switcher.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default link behavior
+        toggleDarkMode();
+    });
+
+    // Check if dark mode preference is storage
+    if (isDarkMode === 'false' || isDarkMode === null) {
+        toggleDarkMode(); // Set dark mode as default
+        }
+    });
+</script>

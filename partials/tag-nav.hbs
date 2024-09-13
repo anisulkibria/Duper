@@ -1,0 +1,19 @@
+<div class="tag-nav">
+    <div class="all-tags">
+        <ul>
+            <li>
+                <a id="tagname-all" href="#" data-filter="all" class="cat-btn tagname-all active">{{t "All"}}</a>
+            </li>
+            {{!-- <li>
+                <a id="tagname-featured" href="#" data-filter="featured" class="cat-btn tagname-featured">{{t "Featured"}}</a>
+            </li> --}}
+            {{#get "tags" limit="10"}}
+            {{#foreach tags}}
+            <li>
+                <a href="#" id="tagname-{{slug}}" class="cat-btn" data-filter="{{slug}}">{{name}}</a>
+            </li>
+            {{/foreach}}
+            {{/get}}
+        </ul>
+    </div>
+</div>
